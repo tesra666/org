@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tesra - 更新日志</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta name="renderer" content="webkit">
+    <script src="//app.vizo.top/js/zoom.js"></script>
+    <script src="//app.vizo.top/js/ie.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      body {
+        font-size: 14px;
+        font-family: -apple-system, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Arial, sans-serif;
+        color: #27282b;
+        background: #fff;
+      }
+      a {
+        text-decoration: none;
+        color: #27282b;
+      }
+      *,
+      *::before,
+      *::after {
+        outline: none;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      .wrapper {
+        padding-top: 100px;
+      }
+      .h1mt {
+        text-align: center;
+        font-size: 22px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 50px;
+      }
+      .c-content {
+        width: 500px;
+        border-left: 1px solid #cf4f13;
+        margin: 0 auto;
+      }
+      .u-tiem {
+        padding-left: 20px;
+        margin-bottom: 30px;
+        position: relative;
+      }
+      .u-tiem::before {
+        content: '';
+        width: 15px;
+        height: 15px;
+        background: #fff;
+        border: 1px solid #cf4f13;
+        border-radius: 55%;
+        position: absolute;
+        top: 5px;
+        left: -8px;
+      }
+      .u-tiem .l2 {
+        font-size: 14px;
+        line-height: 1.8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper" id="app">
+      <h1 class="h1mt">Tesra更新日志</h1>
+      <div class="c-content">
+        <ul class="u-tiem" v-for="(item, index) of list" :key="index">
+          <li class="l2" v-for="child of item">{{ child }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+    <script>
+      'use strict'
+      let vm = new Vue({
+        el: '#app',
+        data() {
+          return {
+            msg: 'd1',
+            list: [
+              [
+                '2019-06-30',
+                '2019年6月30日产品上线，本期主要功能有工作台、训练平台和星盘，详细内容见下文：',
+                '1.我的工作台：实现工作台、项目、消息模块相关功能；',
+                '工作台：展示当前运行项目数、最近编辑的项目，可查看工作台项目当前或历史详情；',
+                '项目：在这里可进行项目上传与已上传项目详情查看；',
+                '消息：实现消息的接收与查看；',
+                '2.训练平台：包括工具栏、项目导入、代码训练配置、训练状态查看、训练历史记录等模块相关功能；',
+                '工具栏：包括InFlex、文件、编辑、查找、项目和帮助模块。',
+                '项目导入：导入需要进行训练的项目；',
+                '代码训练参数配置：包括AI引擎、项目主函数所在类、模型输出路径、GPU数量选择、运行参数等信息配置；',
+                '训练状态：可查看项目训练状态，包括项目当前状态、已训练时长、已消耗算力；',
+                '训练历史：可查看当前项目训练历史；',
+                '训练日志：可查看项目训练日志；',
+                '3.星盘：强大的项目文件数据存储平台，可进行项目的上传、查看、删除等功能。',
+              ],
+            ]
+          }
+        },
+        methods: {
+          func1() {
+            
+          },
+        },
+      })
+    </script>
+  </body>
+  <script src="/home-pages/common.js"></script>
+</html>

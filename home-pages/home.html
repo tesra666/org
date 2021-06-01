@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title enrk="Tesra - Home">Tesra - 首页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="//tsimg.top/js/zoom.js"></script>
+  <script src="//tsimg.top/js/ie.js"></script>
+  <meta name="renderer" content="webkit">
+  <link rel="icon" type="image/x-icon" href="/home-pages/favicon.ico" />
+  <link rel="stylesheet" href="/home-pages/font-awesome.css" />
+  <link rel="stylesheet" href="/home-pages/header.css" />
+  <link rel="stylesheet" href="/home-pages/animate.min.css" />
+  <link rel="stylesheet" href="/home-pages/common.css" />
+  <link rel="stylesheet" href="/home-pages/home.css" />
+  <link rel="dns-prefetch" href="/login">
+  <link rel="dns-prefetch" href="/register">
+  <style>
+    .nav_bar .logedin .to-login {
+      display: none;
+    }
+
+    .nav_bar .logedout .to-logout {
+      display: none;
+    }
+
+    .section2y {
+      max-height: 800px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="section  nav" id="app" :class="{'no-cursor' : nocursor}">
+      <div class="bgsp-m" oncontextmenu="javascript:return false;">
+        <canvas class="bgsp"></canvas>
+        <img class="img1" v-for="(item, index) of imgList" :key="getRandStr(7)" :class="[showimg(index), curAnim]"
+          :src="item.url" :style="imgCoordArr[index]" oncontextmenu="javascript:return false;" />
+      </div>
+      <div class="content full_h">
+        <div class="align_c nav_video">
+          <div class="title1" enrk="Building Artificial Intelligence Super Brain">构建人工智能超级大脑</div>
+          <a class="live_btn " target="_blank" href="https://ipfs.tesra.vip:8011/ipfs/Qmb9Xund9vXQWharVHiuMZQZYb7GdjSXWn8EwoQoZTcz9K"> <i
+              class="fa fa-caret-right"></i><span enrk="The Future to Be">活在未来<span> </a>
+        </div>
+      </div>
+    </div>
+    <div class="section section2 section2x  editor">
+      <div class="content">
+        <div class="title">
+          <div class="t1" enrk="InFlex Computing Platform">InFlex 训练平台</div>
+          <div class="t2" enrk="Unleash Intelligence and Bring the Future in Front of You">释放智慧，让未来身临其境</div>
+          <div class="t3" enrk="GPU Computing power resources with Infinite Flexibility for zero-change training and online parameter adjustment">无限扩容（Infinite Flexibility）的GPU算力资源，零改动训练、在线调参。</div>
+        </div>
+        <div class="effect">
+          <div class="bg_img">
+            <img class="full_w" id="mac-book" src="/home-pages/imgs/cp.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <img class="editor_img" src="/home-pages/imgs/xunlianpingtai.png" />
+    </div>
+    <div class="section section2 payment">
+      <div class="content">
+        <div class="title">
+          <div class="t1" enrk="Training First, Then Settlement
+          ">先训练 后结算</div>
+          <div class="t2" enrk="Tackle complexities in a simple way. User experience comes first">以简驭繁 体验至上</div>
+          <div class="t3" enrk="Without any complex operation, InFlex serves to build a grand future in the small interface">InFlex大胆摒弃琐碎的操作流程，只为您在方寸之间构架未来</div>
+        </div>
+        <div class="effect">
+          <div class="bg_img">
+            <img class="full_w" src="/home-pages/imgs/pad.png" alt="" />
+            <div class="pad_content">
+              <div class="bg_bar"></div>
+              <div class="finish ">
+                <img width="60" src="/home-pages/imgs/dagou.png" alt="" />
+                <div class="test" enrk="Training completed">训练已完成</div>
+                <div class="go_pay">
+                  <span class="goBtn toLocations">
+                    <span class="go_to_pay" enrk="Pay">支付</span>
+                    <span class="go_to_ty" onclick="window.location.href='/aitrain'" enrk="Have a try">去体验</span>
+                    <img class="zhifu_bg" src="/home-pages/imgs/zhifu.png" alt="" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section section2 cpu">
+      <div class="bg_cpu"></div>
+      <div class="content">
+        <div class="title">
+          <div class="t1" enrk="Distributed GPU Cluster">分布式GPU集群</div>
+          <div class="t2" enrk="With the parallel computing platform CUDA, it is friendly to new users and runs faster">CUDA并行，易上手更快速</div>
+          <div class="t3" enrk="Computing power resources expanded, and training duration reduced">扩容算力资源，缩短训练时长。</div>
+        </div>
+        <div class="effect">
+          <div class="">
+            <div class="cpu_box">
+              <div class="cpus">
+                <div class="cpu_item">
+                  <div class="line_bar line_bar_t"></div>
+                  <div class="line_bar line_bar_r"></div>
+                  <div class="line_bar line_bar_b"></div>
+                  <div class="cpu_inner cpu_inner1">
+                    <img src="/home-pages/imgs/cpu.png" alt="" />
+                    <div class="light"></div>
+                  </div>
+                  <div class="cpu_inner cpu_inner2">
+                    <img src="/home-pages/imgs/cpu.png" alt="" />
+                    <div class="light"></div>
+                  </div>
+                  <!--                                <div id="clock1" class="clock">-->
+                  <!--                                    <div class="s"></div>-->
+                  <!--                                    <div class="m"></div>-->
+                  <!--                                </div>-->
+                </div>
+                <div class="cpu_item">
+                  <div class="line_bar line_bar_t"></div>
+                  <div class="line_bar line_bar_r"></div>
+                  <div class="line_bar line_bar_b"></div>
+                  <div class="cpu_inner cpu_inner1">
+                    <img src="/home-pages/imgs/cpu.png" alt="" />
+                    <div class="light"></div>
+                  </div>
+                  <div class="cpu_inner cpu_inner2">
+                    <img src="/home-pages/imgs/cpu.png" alt="" />
+                    <div class="light"></div>
+                  </div>
+                  <div id="clock2" class="clock">
+                    <div class="s"></div>
+                    <div class="m"></div>
+                  </div>
+                </div>
+                <div class="cpu_item">
+                  <div class="line_bar line_bar_t"></div>
+                  <div class="line_bar line_bar_r"></div>
+                  <div class="line_bar line_bar_b"></div>
+                  <div class="cpu_inner cpu_inner1">
+                    <img src="/home-pages/imgs/cpu.png" alt="" />
+                    <div class="light"></div>
+                  </div>
+                  <div class="cpu_inner cpu_inner2">
+                    <img src="/home-pages/imgs/cpu.png" alt="" />
+                    <div class="light"></div>
+                  </div>
+                  <div id="clock3" class="clock">
+                    <div class="s"></div>
+                    <div class="m"></div>
+                  </div>
+                </div>
+                <div class="cpu_item">
+                  <div class="line_bar line_bar_t"></div>
+                  <div class="line_bar line_bar_r"></div>
+                  <div class="line_bar line_bar_b"></div>
+                  <div class="cpu_inner cpu_inner1">
+                    <img src="/home-pages/imgs/cpu.png" alt="" />
+                    <div class="light"></div>
+                  </div>
+                  <div class="cpu_inner cpu_inner2">
+                    <img src="/home-pages/imgs/cpu.png" alt="" />
+                    <div class="light"></div>
+                  </div>
+                  <div id="clock4" class="clock">
+                    <div class="s"></div>
+                    <div class="m"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="big_cpu_box">
+                <img class="big_cpu" src="/home-pages/imgs/cpu.png" alt="" />
+                <div class="big_cpu_hx"></div>
+              </div>
+              <div class="cpus_filter"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section section2 section2y file">
+      <div class="content">
+        <div class="title">
+          <div class="t1" enrk="InterPlanetary File System">星际文件系统</div>
+          <div class="t2" enrk="Decentralized, efficient, and safer">去中心，高效更安全</div>
+          <div class="t3" enrk="Peer-to-peer supermedia protocol refines the internet">点对点高阶超媒体底层协议，重定义互联网</div>
+        </div>
+        <div class="effect">
+          <div class="bg_img file_img">
+            <!--                    <img class="full posi_a l_0 t_0" src="/home-pages/imgs/file.png" alt="">-->
+            <div class="file_box  flex_box flex_align_sa ">
+              <div class="file_item">
+                <img class="img_b" src="/home-pages/imgs/file_con.png" alt="" />
+                <img class="img_c" src="/home-pages/imgs/file1_c.png" alt="" />
+                <div class="img_f img_f1"><img class="" src="/home-pages/imgs/yuanquan_re.png" alt="" /></div>
+                <div class="test" enrk="Decentralized">去中心</div>
+              </div>
+              <div class="file_item">
+                <img class="img_b" src="/home-pages/imgs/file_con.png" alt="" />
+                <img class="img_c" src="/home-pages/imgs/file4_c.png" alt="" />
+                <div class="img_f img_f4"><img class="" src="/home-pages/imgs/yuanquan_re.png" alt="" /></div>
+                <div class="test" enrk="Peer to peer">点对点</div>
+              </div>
+              <div class="file_item">
+                <img class="img_b" src="/home-pages/imgs/file_con.png" alt="" />
+                <img class="img_c" src="/home-pages/imgs/file2_c.png" alt="" />
+                <div class="img_f img_f2"><img class="" src="/home-pages/imgs/yuanquan_re.png" alt="" /></div>
+                <div class="test" enrk="Efficient">高效</div>
+              </div>
+              <div class="file_item">
+                <img class="img_b" src="/home-pages/imgs/file_con.png" alt="" />
+                <img class="img_c" src="/home-pages/imgs/file3_c.png" alt="" />
+                <div class="img_f img_f3"><img class="" src="/home-pages/imgs/yuanquan_re.png" alt="" /></div>
+                <div class="test" enrk="Safe">安全</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section section2 detection">
+      <div class="content">
+        <div class="text_box">
+          <div class="item item1">
+            <div class="test">
+              <div class="t1" enrk="Host Detection">主机检测</div>
+              <div class="t2" enrk="Access control, intrusion detection, vulnerability detection">访问控制、入侵检测、漏洞检测等</div>
+            </div>
+            <img src="/home-pages/imgs/dec_shadow.png" class="dec_shadow" />
+            <div class="arrow_box">
+              <div class="arrow"></div>
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="item item2">
+            <div class="test">
+              <div class="t1" enrk="Network System">网络系统</div>
+              <div class="t2" enrk="Firewall, border integrity check, intrusion detection">防火墙、边界完整性检查、入侵检测系统等</div>
+            </div>
+            <img src="/home-pages/imgs/dec_shadow.png" class="dec_shadow" />
+            <div class="arrow_box">
+              <div class="arrow"></div>
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="item item3">
+            <div class="test">
+              <div class="t1" enrk="Applicable Range">应用范围</div>
+              <div class="t2" enrk="Identity verification, access control, security audit, information protection, WAF/TLS">身份鉴别、访问控制、安全审计、信息保护、WAF/TLS等</div>
+            </div>
+            <img src="/home-pages/imgs/dec_shadow.png" class="dec_shadow" />
+            <div class="arrow_box">
+              <div class="arrow"></div>
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="item item4">
+            <div class="test">
+              <div class="t1" enrk="Data Security">数据安全</div>
+              <div class="t2" enrk="Offsite disaster recovery, access control, data encryption">异地灾备、访问控制、数据加密等</div>
+            </div>
+            <img src="/home-pages/imgs/dec_shadow.png" class="dec_shadow" />
+            <div class="arrow_box">
+              <div class="arrow"></div>
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="know_more" href="/home-pages/data_px/index.html" enrk="Know more about information security">了解更多信息安全</a>
+    </div>
+    <div class="footer align_c flex_box flex_align_c">
+      <div>
+        <div class="flex_box flex_align_c margin_b_10">
+          <a class="margin_lr_20" href="https://tccp.tesra.cloud">TCCP</a>
+          <a class="margin_lr_20" href="/help" enrk="Help">帮助中心</a>
+          <a class="margin_lr_20" href="/uplog" enrk="Update Log">更新日志</a>
+          <a class="margin_lr_20" href="javascript:goToHelp();" enrk="About Us">关于我们</a>
+          <a class="margin_lr_20" href="/protocol" enrk="Service Agreement">服务协议</a>
+          <a class="margin_lr_20" id="feedback" enrk="Feedback">反馈</a>
+        </div>
+        <div class="infor" enrk="@Copyright Tesra Supernet">@Copyright Tesra超算网络 渝ICP备<a href="http://www.beian.miit.gov.cn/" target="_blank">19013136号-1</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="m_page">
+    <div class="section  nav" id="app_m" :class="{'no-cursor' : nocursor}">
+      <div class="bgsp-m" oncontextmenu="javascript:return false;">
+        <canvas class="bgsp2"></canvas>
+      </div>
+      <div class="content margin_t_200">
+        <div class="align_c nav_video">
+          <div class="title1" enrk="Building Artificial Intelligence &lt;/br&gt;Super Brain">构建人工智能超级大脑</div>
+          <a class="live_btn " target="_blank" href="https://ipfs.tesra.vip:8011/ipfs/Qmb9Xund9vXQWharVHiuMZQZYb7GdjSXWn8EwoQoZTcz9K"> <i
+              class="fa fa-caret-right"></i><span enrk="The Future to Be">活在未来</span> </a>
+        </div>
+      </div>
+      <script>
+        document.querySelectorAll('.content.margin_t_200')[0].style.height = document.documentElement.clientHeight - 160 + "px"
+        document.querySelectorAll('.content.margin_t_200')[0].style.marginTop = 160 + "px"
+        document.querySelectorAll(".m_page .bgsp-m")[0].style.height = document.documentElement.clientHeight + 20 + "px"
+      </script>
+    </div>
+    <img src="/home-pages/imgs/home_m/home_block_0.png" style="margin-top: 20px" class="full_w mobile-background" hidden>
+    <img src="/home-pages/imgs/home_m/home_block_1.png" class="full_w mobile-background" hidden>
+    <img src="/home-pages/imgs/home_m/home_block_2.png" class="full_w mobile-background" hidden>
+    <img src="/home-pages/imgs/home_m/home_block_3.png" class="full_w mobile-background" hidden>
+    <img src="/home-pages/imgs/home_m/home_block_4.png" class="full_w mobile-background" hidden>
+    <img src="/home-pages/imgs/home_m/index.png" class="full_w pc-background" alt="" />
+    <div class="ft-menu">
+      <ul>
+        <li>
+          <a href="https://tccp.tesra.cloud" enrk="TCCP">TCCP</a>
+        </li>
+        <li>
+          <a href="http://tesra.io" enrk="About Us">关于我们</a>
+        </li>
+        <li>
+          <a enrk="@Copyright Tesra Supernet">@Copyright Tesra超算网络 渝ICP备<a href="http://www.beian.miit.gov.cn/" target="_blank">19013136号-1</a></a>
+        </li>
+      </ul>
+      <p class="infor" enrk="Please try Tesra products on PC for a better experience">提示:为了您更好的体验Tesra的产品请移步至PC端尝试</p>
+    </div>
+  </div>
+  <div class="menulist posi_f full l_0 t_0">
+    <div class="pading_lr_15 align_c menuBox">
+      <a class="list" href="/home-pages/xiexp/help.pdf" enrk="Product Function">产品功能</a>
+      <a class="list" href="/home-pages/data.html" enrk="Storage">存储空间</a>
+      <a class="list" href="/home-pages/data_px/index.html" enrk="Data Security">信息安全</a>
+    </div>
+  </div>
+  <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+  <script src="https://lib.baomitu.com/particlesjs/2.2.3/particles.min.js"></script>
+  <script src="https://lib.baomitu.com/axios/0.19.0-beta.1/axios.min.js"></script>
+  <script>
+    function v1() {
+      let vm = new Vue({
+        el: '#app',
+        data() {
+          return {
+            ptoj: '',
+            nocursor: false,
+            allowMoveOffset: 50,
+            timer: null,
+            isAnim: true,
+            randImgIdx: -1,
+            animList: [
+              'fadeIn',
+              'bounceIn',
+              'tada',
+              'rollIn',
+              'zoomInDown',
+              'zoomInLeft',
+              'zoomInUp',
+              'zoomInRight',
+              'zoomIn',
+              'slideInDown',
+              'rotateInUpLeft',
+              'rotateInDownRight',
+              'rotateInDownLeft',
+              'rotateIn',
+              'lightSpeedIn',
+              'flipInY',
+            ],
+            curAnim: '',
+            imgCoordArr: [],
+            mouseX: 0,
+            mouseY: 0,
+            imgList: [{
+                name: '宇航服',
+                url: '/home-pages/imgs/k1.png',
+              },
+              {
+                name: '苹果',
+                url: '/home-pages/imgs/k2.png',
+              },
+              {
+                name: '',
+                url: '/home-pages/imgs/k3.png',
+              },
+              {
+                name: '',
+                url: '/home-pages/imgs/k4.png',
+              },
+              {
+                name: '',
+                url: '/home-pages/imgs/k5.png',
+              },
+              {
+                name: '',
+                url: '/home-pages/imgs/k6.png',
+              },
+              {
+                name: '',
+                url: '/home-pages/imgs/k7.png',
+              },
+              {
+                name: '',
+                url: '/home-pages/imgs/k8.png',
+              },
+              {
+                name: '',
+                url: '/home-pages/imgs/k9.png',
+              },
+              {
+                name: '',
+                url: '/home-pages/imgs/k10.png',
+              },
+            ],
+            screen_height: `${document.documentElement.clientHeight}`,
+          }
+        },
+        methods: {
+          getRandColor() {
+            return '#' + ('00000' + ((Math.random() * 16777215 + 0.5) >> 0).toString(16)).slice(-6)
+          },
+          getRandStr(len) {
+            let str = ''
+            for (; str.length < len; str += Math.random()
+              .toString(36)
+              .substr(2)
+            );
+            return str.substr(0, len)
+          },
+          randNum(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+          },
+          getRandItem(arr) {
+            return arr[Math.floor(Math.random() * arr.length)]
+          },
+          setRandAnim() {
+            this.curAnim = this.isAnim ? this.getRandItem(this.animList) : ''
+          },
+          setRandImg() {
+            this.randImgIdx = +this.randNum(0, this.imgList.length - 1)
+          },
+          setImgCoord(x, y) {
+            let styles = Array.from(document.querySelectorAll('.img1'), (v, i) => {
+              return {
+                top: y - ~~(v.offsetHeight / 2) + 'px',
+                left: x - ~~(v.offsetWidth / 2) + 'px',
+              }
+            })
+            this.imgCoordArr = styles
+          },
+          showimg(idx) {
+            return this.randImgIdx === idx && this.isAnim ? 'on' : ''
+          },
+        },
+
+        mounted() {
+          document.addEventListener('mousemove', e => {
+            let zx = Math.abs(e.clientX - this.mouseX)
+            let zy = Math.abs(e.clientY - this.mouseY)
+            let max = Math.max(zx, zy)
+            // 允许鼠标移动的位移, 小于等于该范围不执行事件
+            // console.log( e, e.pageY,~~this.screen_height)
+            if (max <= this.allowMoveOffset || e.pageY > ~~this.screen_height) {
+              return
+            }
+
+            this.mouseX = e.clientX
+            this.mouseY = e.clientY
+
+            clearTimeout(this.timer)
+            this.isAnim = false
+            this.nocursor = false
+
+            this.timer = setTimeout(() => {
+              if (e.clientY < 100) {
+                return
+              }
+              this.isAnim = true
+              this.setImgCoord(e.pageX, e.pageY)
+              this.setRandImg()
+              this.setRandAnim()
+              this.nocursor = true
+            }, 800)
+          })
+        },
+      })
+      Particles.init({
+        selector: '.bgsp',
+        maxParticles: 150, // 最大颗粒数量 100
+        sizeVariations: 5, // 尺寸变化量 3
+        connectParticles: true, // 是否显示连接线 false
+        speed: 0.8, // 粒子运动速度 0.5
+        color: '#dddddd', // 粒子和连接线颜色 000000
+        minDistance: 120, // 连线的距离 120
+      })
+    }
+
+    function v2() {
+      Particles.init({
+        selector: '.bgsp2',
+        maxParticles: 30, // 最大颗粒数量 100
+        sizeVariations: 3, // 尺寸变化量 3
+        connectParticles: true, // 是否显示连接线 false
+        speed: 1, // 粒子运动速度 0.5
+        color: '#dddddd', // 粒子和连接线颜色 000000
+        minDistance: 100, // 连线的距离 120
+      })
+    }
+    function goToHelp(){
+      let isEn = localStorage.getItem("curLanguage") === "en"
+      if(isEn){
+        window.location.href="/help-detail/27"
+      } else {
+        window.location.href="/help-detail/8"
+      }
+    }
+  </script>
+  <script>
+    $(function () {
+      if(localStorage.getItem("curLanguage") === 'en'){
+        $("#mac-book").attr("src","/home-pages/imgs/MacBook.png").css('margin-top',"14px").css('margin-left',"-2px")
+        $(".detection .content .item").css({"padding":"15px 15px"})
+      }
+      var screenHeight = $(window).height()
+      var screenWidth = $(window).width()
+      $("#app").css({
+        'height': screenHeight
+      })
+      if (screenWidth >= 1280 && screenWidth < 1920) {
+        // $('.section2').css({ 'max-height': '755px' })
+      }
+      // if (screenWidth >= 1920) {
+      //   $('.section2x').css({ 'min-height': '1020px' })
+      //   $('.section2x').css({ 'height': '1020px' })
+      // }
+      if (screenWidth > 768) {
+        v1()
+      } else {
+        v2()
+      }
+      // $('.section').css('height', screenHeight + 'px')
+      $('.editor_img').css({
+        height: screenHeight + 'px',
+        width: screenWidth + 'px',
+        left: '0%',
+        top: '0%',
+      })
+      // $('.section').css("height",screenHeight + "px")
+      $(document).scroll(function (e) {
+        let t = $(document).scrollTop()
+        hideEditor(t)
+        showPayment(t)
+        showCpu(t)
+      })
+
+      function hideEditor(t) {
+        if (t > screenHeight) {
+          // if (screenWidth >= 1920) {
+          $('.editor_img').css({
+            height: '554px',
+            width: '888px',
+            left: '49.89%',
+            top: '258px',
+            transform: 'translate(-50%)',
+          })
+          // } else {
+          //   $('.editor_img').css({
+          //     height: '375px',
+          //     width: '593px',
+          //     left: '50%',
+          //     top: '245px',
+          //     transform: 'translate(-50%)',
+          //   })
+          // }
+
+          setTimeout(function () {
+            $('.editor_img').css({
+              opacity: '0'
+            })
+          }, 2300)
+        }
+        // if (t >= screenHeight * 2 || t == 0) {
+        //     $('.editor_img').removeClass('hideEditor')
+        // }
+      }
+
+      function showPayment(t) {
+        if (t > screenHeight * 1.5 && !$('.pad_content').hasClass('show_finish')) {
+          $('.pad_content').animate({
+            scrollTop: $('.pad_content .bg_bar').height() - 400
+          }, 3000, '', () => {
+            $('.bg_bar').addClass('height_1')
+            $('.finish').addClass('show_finish')
+            return
+          })
+        }
+        if ($('.pad_content').hasClass('show_finish') && (t < screenHeight || t > screenHeight * 3)) {
+          $('.pad_content').scrollTop(0)
+          $('.bg_bar').removeClass('height_1')
+          $('.finish').removeClass('show_finish')
+        }
+      }
+
+      function showCpu(t) {
+        if (t > screenHeight * 3 && !$('.big_cpu').hasClass('fadeOut')) {
+          $('.big_cpu_box').addClass('fadeOut')
+          $('.bg_cpu ').addClass('fadeOut_1')
+          $('.cpus , .cpus_filter').addClass('cpus_blue_0')
+          return
+        }
+        // if (t > screenHeight * 4 || t < screenHeight * 2) {
+        //     $('.big_cpu').removeClass('fadeOut');
+        //     $('.cpus').removeClass('cpus_blue_0');
+        // }
+      }
+
+      $('.menu').click(function () {
+        $('.menulist').show()
+      })
+      $('.menulist').click(function () {
+        $('.menulist').hide()
+      })
+
+      // ‘去体验’按钮跳转
+      $('.toLocations').on('click', function () {
+        let lgn = localStorage.getItem('isLogin')
+        let time = lgn && lgn.replace(/^true\|/, '')
+        let now = Date.now() / 1e3
+        if (time - now > 0) {
+          window.location.href = '/aitrain'
+        } else {
+          window.open('/login', '_blank').location
+        }
+      })
+      // 视窗变化监听
+      // var timer = null
+      $(window).on('resize', function () {
+        document.querySelectorAll('.content.margin_t_200')[0].style.height = document.documentElement.clientHeight - 160 + "px"
+        document.querySelectorAll('.content.margin_t_200')[0].style.marginTop = 160 + "px"
+        document.querySelectorAll(".m_page .bgsp-m")[0].style.height = document.documentElement.clientHeight + 20 + "px"
+        // $('.section').css('height', screenHeight + 'px')
+        var screenWidth = $(window).width()
+        if (screenWidth >= 768) {
+          v1()
+        } else v2()
+        // clearTimeout(timer)
+        // timer = setTimeout(() => {
+        //   location.reload()
+        // }, 500)
+      })
+    })
+  </script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="/home-pages/header.js"></script>
+<script src="/home-pages/common.js"></script>
+</html>

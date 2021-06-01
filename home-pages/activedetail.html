@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//app.vizo.top/js/zoom.js"></script>
+  <script src="//app.vizo.top/js/ie.js"></script>
+  <meta name="renderer" content="webkit">
+  <link rel="icon" type="image/x-icon" href="/home-pages/favicon.ico" />
+  <link rel="stylesheet" href="/home-pages/header.css" />
+  <link rel="stylesheet" href="/home-pages/common.css" />
+  <link rel="stylesheet" href="/home-pages/home.css" />
+  <link rel="stylesheet" href="/home-pages/activedetail.css" />
+  <link rel="dns-prefetch" href="/login">
+  <link rel="dns-prefetch" href="/register">
+  <title enrk="Tesra - Details of the program">Tesra - 活动详情</title>
+</head>
+<style>
+  body {
+    background: linear-gradient(to right, #4953ab, #42a1fa);
+    position: relative;
+  }
+
+  .kt-header {
+    position: relative;
+  }
+
+  .footer {
+    background: unset;
+  }
+</style>
+
+<body>
+  <div class="container" id="app">
+    <div class="content-main flash-none">
+      <div @click="enshrineOrCancelEnshrine()" :class="['enshrine-btn',isEnshrine ? 'checked' : void 0]">
+        {{ enshrineTxt }}</div>
+      <div class="active-title">
+        <span>{{activeData.title}}</span>
+        <img v-if="newest" src="/home-pages/imgs/ico_new.png" alt="">
+        <img v-if="activeData.readingVolume>=500" src="/home-pages/imgs/ico_hot.png" alt="">
+        <img v-if="(new Date()).getTime() > activeData.beOverdueTime" src="/home-pages/imgs/ico_guoqi.png" alt="">
+      </div>
+      <div class="active-main-text" v-html="activeData.content"></div>
+    </div>
+  </div>
+  <div class="footer align_c flex_box flex_align_c">
+    <div>
+      <div class="flex_box flex_align_c margin_b_10">
+        <a class="margin_lr_20" href="https://tccp.tesra.cloud">TCCP</a>
+        <a class="margin_lr_20" href="/help" enrk="Help">帮助中心</a>
+        <a class="margin_lr_20" href="/uplog" enrk="Update Log">更新日志</a>
+        <a class="margin_lr_20" href="javascript:goToHelp();" enrk="About Us">关于我们</a>
+        <a class="margin_lr_20" href="/protocol" enrk="Service Agreement">服务协议</a>
+        <a class="margin_lr_20" id="feedback" enrk="Feedback">反馈</a>
+      </div>
+      <div class="infor" enrk="@Copyright Tesra Supernet">@Copyright Tesra超算网络</div>
+    </div>
+  </div>
+  <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+  <script src="https://lib.baomitu.com/axios/0.19.0-beta.1/axios.min.js"></script>
+  <script src="/home-pages/header.js"></script>
+  <script src="/home-pages/common.js"></script>
+</body>
+<script>
+  function goToHelp(){
+    let isEn = localStorage.getItem("curLanguage") === "en"
+    if(isEn){
+      window.location.href="/help-detail/27"
+    } else {
+      window.location.href="/help-detail/8"
+    }
+  }
+  $(function () {
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          activeData: "",
+          activeId: this.getUrlParam('actId'),
+          isEnshrine: false,
+          enshrineTxt: '收藏',
+          isEn: localStorage.getItem("curLanguage") === "en"
+        }
+      },
+      computed: {
+        newest() {
+          return this.getUrlParam('newest') ? true : false
+        }
+      },
+      created() {
+        this.getActiveInfo()
+        let lgn = localStorage.getItem('isLogin')
+        let time = lgn && lgn.replace(/^true\|/, '')
+        let now = Date.now() / 1e3
+        // if已登录
+        if (time - now > 0)
+          this.activeEnshrineChecked()
+      },
+      methods: {
+        getUrlParam(key) {
+          let url = window.location.search;
+          let reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+          let result = url.substr(1).match(reg);
+          return result ? decodeURIComponent(result[2]) : null;
+        },
+        activeEnshrineChecked() {
+          let urlStr = '/api/document/isFavorite?documentId=' + this.activeId + "&type=3"
+          axios({
+              url: urlStr,
+              method: 'GET',
+              headers: {
+                version: 1,
+                device: 1,
+                'Accept-Language':this.isEn ? 'en-US' : 'zh-CN'
+              }
+            })
+            .then(res => {
+              if (res.data.code === 200) {
+                this.isEnshrine = res.data.payload
+                if(this.isEn){
+                  this.enshrineTxt = (res.data.payload ? 'Collected' : 'Collect')
+                } else {
+                  this.enshrineTxt = (res.data.payload ? '已收藏' : '收藏')
+                }
+              } else {
+                alert(res.data.message)
+              }
+            })
+        },
+        enshrineOrCancelEnshrine() { // /document/favorite
+          if (!this.isEnshrine) { //收藏
+            let urlStr =
+              `/api/document/favorite?documentId=${this.activeId}&type=3&title=${this.activeData.title}&path=${window.location.pathname}`
+            axios({
+                url: urlStr,
+                method: 'GET',
+                headers: {
+                  version: 1,
+                  device: 1,
+                  'Accept-Language':this.isEn ? 'en-US' : 'zh-CN'
+                }
+              })
+              .then(res => {
+                if (res.data.code === 200) {
+                  this.isEnshrine = true
+                  this.enshrineTxt = this.isEn ? 'Collected' : '已收藏'
+                } else if (res.data.code === 401) {
+                  this.isEn? alert('Not Logged In') :alert("未登录")
+                  setTimeout(() => {
+                    location.href = '/login'
+                  }, 2000);
+                } else {
+                  alert(res.data.message || '收藏失败')
+                }
+              })
+          } else { // 取消收藏
+            let urlStr = '/api/document/cancel/favorite?documentId=' + this.activeId + '&type=3'
+            axios({
+                url: urlStr,
+                method: 'GET',
+                headers: {
+                  version: 1,
+                  device: 1,
+                  'Accept-Language':this.isEn ? 'en-US' : 'zh-CN'
+                },
+              })
+              .then(res => {
+                if (res.data.code === 200) {
+                  this.isEnshrine = false
+                  this.enshrineTxt = this.isEn ? 'Collect' : '收藏'
+                } else if (res.data.code === 401) {
+                  this.isEn? alert('Not Logged In') :alert("未登录")
+                  setTimeout(() => {
+                    location.href = '/login'
+                  }, 2000);
+                } else {
+                  alert(res.data.message || '取消收藏失败')
+                }
+              })
+          }
+        },
+        getActiveInfo() {
+          let urlStr = '/api/activity/selectActivityById?id=' + this.activeId
+          axios({
+              url: urlStr,
+              method: 'GET',
+              headers: {
+                version: 1,
+                device: 1,
+                'Accept-Language':this.isEn ? 'en-US' : 'zh-CN'
+              }
+            })
+            .then(res => {
+              if (res.data.code === 200) {
+                let data = res.data.payload
+                this.activeData = data
+                let els = document.querySelectorAll('.flash-none')
+                els.forEach(el => {
+                  el.classList.remove('flash-none')
+                })
+              } else {
+                alert(res.data.message || '查询活动错误')
+              }
+            })
+        }
+      }
+    })
+  })
+</script>
+
+</html>

@@ -1,0 +1,341 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Tesra - 产品功能</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="//app.vizo.top/js/zoom.js"></script>
+    <script src="//app.vizo.top/js/ie.js"></script>
+    <link rel="icon" type="image/x-icon" href="/home-pages/logo.ico">
+    <link rel="stylesheet" href="/home-pages/font-awesome.css" />
+    <link rel="stylesheet" href="/home-pages/animate.min.css">
+    <link rel="stylesheet" href="/home-pages/header.css" />
+    <link rel="stylesheet" href="/home-pages/common.css" />
+    <link rel="stylesheet" href="/home-pages/home.css" />
+    <link rel="dns-prefetch" href="/login">
+    <link rel="dns-prefetch" href="/register">
+</head>
+
+<body>
+    <div class="page">
+        <div class="nav_bar ">
+        </div>
+
+        <div class="footer align_c flex_box flex_align_c">
+            <div>
+                <div class="flex_box flex_align_c margin_b_10">
+                    <a class="margin_lr_20" href="https://tccp.tesra.cloud">TCCP</a>
+                    <a class="margin_lr_20" href="/help">帮助中心</a>
+                    <a class="margin_lr_20" href="/uplog">更新日志</a>
+                    <a class="margin_lr_20" href="javascript:goToHelp();">关于我们</a>
+                    <a class="margin_lr_20" href="/protocol">服务协议</a>
+                    <a class="margin_lr_20" id="feedback">反馈</a>
+                </div>
+                <div class="infor">@Copyright Tesra超算网络</div>
+            </div>
+        </div>
+    </div>
+    <div class="m_page">
+        <div class="flex_box flex_align_sb height_50 pading_lr_15 mune_nav">
+            <a href="/"><img height="30" src="/home-pages/imgs/data_m/m_logo.png" alt=""></a>
+            <img class="menu" height="20" src="/home-pages/imgs/data_m/m_menu.png" alt="">
+        </div>
+        <div class="section  nav" id="app_m" :class="{'no-cursor' : nocursor}">
+            <div class="bgsp-m" oncontextmenu="javascript:return false;">
+                <canvas class="bgsp2"></canvas>
+            </div>
+            <div class="content margin_t_200">
+                <div class="align_c nav_video">
+                    <div class="title1">构建人工智能超级大脑</div>
+                    <a class="live_btn " target="_blank" href="https://www.tesra.io/xuanchuan.mp4">
+                        <i class="fa fa-caret-right"></i>活在未来
+                    </a>
+                </div>
+            </div>
+        </div>
+        <img src="/home-pages/imgs/home_m/index.png" class="full_w" alt="">
+    </div>
+    <div class="menulist posi_f full l_0 t_0">
+        <div class="pading_lr_15 align_c menuBox">
+            <a class="list" href="/home-pages/xiexp/help.pdf">产品功能</a>
+            <a class="list" href="/home-pages/data.html">存储空间</a>
+            <a class="list" href="/home-pages/data_px/index.html">信息安全</a>
+        </div>
+    </div>
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://lib.baomitu.com/particlesjs/2.2.3/particles.min.js"></script>
+    <script src="https://lib.baomitu.com/axios/0.19.0-beta.1/axios.min.js"></script>
+    <script src="/home-pages/feedback.js"></script>
+    <script>
+        function goToHelp(){
+            let isEn = localStorage.getItem("curLanguage") === "en"
+            if(isEn){
+            window.location.href="/help-detail/27"
+            } else {
+            window.location.href="/help-detail/8"
+            }
+        }
+        function v1() {
+            let vm = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        ptoj: '',
+                        nocursor: false,
+                        allowMoveOffset: 50,
+                        timer: null,
+                        isAnim: true,
+                        randImgIdx: -1,
+                        animList: ['fadeIn', 'bounceIn', 'tada', 'rollIn', 'zoomInDown', 'zoomInLeft',
+                            'zoomInUp', 'zoomInRight', 'zoomIn', 'slideInDown', 'rotateInUpLeft',
+                            'rotateInDownRight', 'rotateInDownLeft', 'rotateIn', 'lightSpeedIn', 'flipInY'
+                        ],
+                        curAnim: '',
+                        imgCoordArr: [],
+                        mouseX: 0,
+                        mouseY: 0,
+                        imgList: [{
+                                name: '宇航服',
+                                url: '/home-pages/imgs/k1.png',
+                            },
+                            {
+                                name: '苹果',
+                                url: '/home-pages/imgs/k2.png',
+                            },
+                            {
+                                name: '',
+                                url: '/home-pages/imgs/k3.png',
+                            },
+                            {
+                                name: '',
+                                url: '/home-pages/imgs/k4.png',
+                            },
+                            {
+                                name: '',
+                                url: '/home-pages/imgs/k5.png',
+                            },
+                            {
+                                name: '',
+                                url: '/home-pages/imgs/k6.png',
+                            },
+                            {
+                                name: '',
+                                url: '/home-pages/imgs/k7.png',
+                            },
+                            {
+                                name: '',
+                                url: '/home-pages/imgs/k8.png',
+                            },
+                            {
+                                name: '',
+                                url: '/home-pages/imgs/k9.png',
+                            },
+                            {
+                                name: '',
+                                url: '/home-pages/imgs/k10.png',
+                            },
+                        ],
+                        screen_height: `${document.documentElement.clientHeight}`
+                    }
+                },
+                methods: {
+                    getRandColor() {
+                        return '#' + ('00000' + ((Math.random() * 16777215 + 0.5) >> 0).toString(16)).slice(-6);
+                    },
+                    getRandStr(len) {
+                        let str = ''
+                        for (; str.length < len; str += Math.random().toString(36).substr(2));
+                        return str.substr(0, len)
+                    },
+                    randNum(min, max) {
+                        return Math.floor((Math.random() * (max - min + 1)) + min)
+                    },
+                    getRandItem(arr) {
+                        return arr[Math.floor(Math.random() * arr.length)]
+                    },
+                    setRandAnim() {
+                        this.curAnim = this.isAnim ? this.getRandItem(this.animList) : ''
+                    },
+                    setRandImg() {
+                        this.randImgIdx = +this.randNum(0, this.imgList.length - 1)
+                    },
+                    setImgCoord(x, y) {
+                        let styles = Array.from(document.querySelectorAll('.img1'), (v, i) => {
+                            return {
+                                top: y - ~~(v.offsetHeight / 2) + 'px',
+                                left: x - ~~(v.offsetWidth / 2) + 'px',
+                            }
+                        })
+                        this.imgCoordArr = styles
+                    },
+                    showimg(idx) {
+                        return this.randImgIdx === idx && this.isAnim ? 'on' : ''
+                    },
+                },
+
+                mounted() {
+                    document.addEventListener('mousemove', (e) => {
+                        let zx = Math.abs(e.clientX - this.mouseX)
+                        let zy = Math.abs(e.clientY - this.mouseY)
+                        let max = Math.max(zx, zy)
+                        // 允许鼠标移动的位移, 小于等于该范围不执行事件
+                        // console.log( e, e.pageY,~~this.screen_height)
+                        if (max <= this.allowMoveOffset || e.pageY > ~~this.screen_height) {
+                            return
+                        }
+
+                        this.mouseX = e.clientX
+                        this.mouseY = e.clientY
+
+                        clearTimeout(this.timer)
+                        this.isAnim = false
+                        this.nocursor = false
+
+                        this.timer = setTimeout(() => {
+                            this.isAnim = true
+                            this.setImgCoord(e.pageX, e.pageY)
+                            this.setRandImg()
+                            this.setRandAnim()
+                            this.nocursor = true
+                        }, 800)
+                    })
+                }
+            })
+            Particles.init({
+                selector: '.bgsp',
+                maxParticles: 150, // 最大颗粒数量 100
+                sizeVariations: 5, // 尺寸变化量 3
+                connectParticles: true, // 是否显示连接线 false
+                speed: .8, // 粒子运动速度 0.5
+                color: '#dddddd', // 粒子和连接线颜色 000000
+                minDistance: 120, // 连线的距离 120
+            })
+        }
+
+        function v2() {
+            Particles.init({
+                selector: '.bgsp2',
+                maxParticles: 150, // 最大颗粒数量 100
+                sizeVariations: 5, // 尺寸变化量 3
+                connectParticles: true, // 是否显示连接线 false
+                speed: .8, // 粒子运动速度 0.5
+                color: '#dddddd', // 粒子和连接线颜色 000000
+                minDistance: 120, // 连线的距离 120
+            })
+        }
+    </script>
+    <script>
+        $(function () {
+            var screenHeight = $(window).height();
+            var screenWidth = $(window).width();
+            if (screenWidth >= 1280 && screenWidth < 1920) {
+                $('.section2').css({
+                    'min-height': '768px'
+                })
+            }
+            if (screenWidth >= 1920) {
+                $('.section2').css({
+                    'min-height': '1080px'
+                })
+            }
+            if (screenWidth > 768) {
+                v1();
+            } else {
+                v2()
+            };
+            $('.section').css('height', screenHeight + 'px')
+            $(window).resize(function () {
+                $('.section').css('height', screenHeight + 'px');
+                if (screenWidth >= 500) {
+                    v1();
+                } else v2();
+            })
+            $('.editor_img').css({
+                'height': screenHeight + 'px',
+                width: screenWidth + 'px',
+                left: "0%",
+                top: "0%"
+            })
+            $(document).scroll(function (e) {
+                let t = $(document).scrollTop();
+                hideEditor(t);
+                showPayment(t);
+                showCpu(t);
+            });
+
+            function hideEditor(t) {
+                if (t > screenHeight) {
+                    if (screenWidth >= 1920) {
+                        $('.editor_img').css({
+                            height: "620px",
+                            width: "993px",
+                            left: "50%",
+                            top: "292px",
+                            transform: "translate(-50%)",
+                        })
+                    } else {
+                        $('.editor_img').css({
+                            height: "368px",
+                            width: "588px",
+                            left: "50%",
+                            top: "271px",
+                            transform: "translate(-50%)",
+                        })
+                    }
+                    setTimeout(function () {
+                        $('.editor_img').css({
+                            opacity: '0'
+                        })
+                    }, 2300)
+                }
+                // if (t >= screenHeight * 2 || t == 0) {
+                //     $('.editor_img').removeClass('hideEditor')
+                // }
+            }
+
+            function showPayment(t) {
+                if (t > screenHeight * 1.5 && !$('.pad_content').hasClass('show_finish')) {
+                    $('.pad_content').animate({
+                        scrollTop: $('.pad_content .bg_bar').height() - 400
+                    }, 3000, '', () => {
+                        $('.bg_bar').addClass('height_1');
+                        $('.finish').addClass('show_finish');
+                        return;
+                    });
+                }
+                if ($('.pad_content').hasClass('show_finish') && (t < screenHeight || t > screenHeight * 3)) {
+                    $('.pad_content').scrollTop(0);
+                    $('.bg_bar').removeClass('height_1');
+                    $('.finish').removeClass('show_finish');
+                }
+            }
+
+            function showCpu(t) {
+                if (t > screenHeight * 3 && !$('.big_cpu').hasClass('fadeOut')) {
+                    $('.big_cpu_box').addClass('fadeOut');
+                    $('.bg_cpu ').addClass('fadeOut_1');
+                    $('.cpus , .cpus_filter').addClass('cpus_blue_0');
+                    return;
+                }
+                // if (t > screenHeight * 4 || t < screenHeight * 2) {
+                //     $('.big_cpu').removeClass('fadeOut');
+                //     $('.cpus').removeClass('cpus_blue_0');
+                // }
+            }
+
+            $('.menu').click(function () {
+                $('.menulist').show();
+            })
+            $('.menulist').click(function () {
+                $('.menulist').hide();
+            })
+        })
+    </script>
+    <script src="/home-pages/header.js"></script>
+    <script src="/home-pages/common.js"></script>
+</body>
+
+</html>

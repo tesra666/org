@@ -1,0 +1,73 @@
+@charset "utf-8";
+.container{
+  position: relative;
+  width: 100%;
+  min-width: 1280px;
+  background: #f7f7f7;
+  border:1px solid #f8f8f8;
+  min-height: calc(100vh - 180px)
+}
+.content-main{
+  position: relative;
+  min-height: calc(100% - 110px);
+  margin: 0 auto;
+  max-width: 1280px;
+  margin-top: 40px;
+  margin-bottom: 70px;
+  background: #fff;
+  box-shadow:0px 3px 26px 1px rgba(213, 255, 231, 0.35);
+  padding: 60px;
+}
+.flash-none{
+  display: none;
+}
+.enshrine-btn {
+  position: absolute;
+  z-index: 2;
+  top: 30px;
+  right: 60px;
+  height: 30px;
+  width: 60px;
+  border-radius: 4px;
+  border: 1px solid #389CFA;
+  color: #389CFA;
+  font-size: 12px;
+  text-align: center;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+  line-height: 28px;
+  /* display: none; */
+}
+.enshrine-btn.checked{
+  border: 1px solid #E5E5E5;
+  color: #9AA1B1;
+}
+.active-title{
+  height: 20px;
+  font-size: 18px;
+  line-height: 20px;
+  color: #152549;
+}
+.active-title>span{
+  float: left;
+}
+.active-title>img{
+  display: inline-block;
+  width: 48px;
+  height: 18px;
+  float: left;
+  margin: 1px 10px 1px 15px;
+}
+.active-picture{
+  width: 100%;
+  margin: 70px 0 30px 0;
+}
+.active-picture img{
+  width: 100%;
+}
+.active-main-text{
+  font-size: 16px;
+  line-height: 24px;
+  color: #152549;
+}

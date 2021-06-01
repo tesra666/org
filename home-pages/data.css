@@ -1,0 +1,137 @@
+.nav .data {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    background: url("/home-pages/imgs/data.png") no-repeat bottom;
+    background-size: contain;
+}
+
+.data_page {
+    background: linear-gradient(135deg, #3F4AA6, #389CFA)
+}
+
+.section3 {
+    background: linear-gradient(to top, #F4F8FF, #FFFFFF)
+}
+
+.section3 .content {
+    height: 500px!important;
+    width: 1500px;
+    padding: 0 110px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.section3 .content .part {
+    position: relative;
+    flex: 1
+}
+
+.content .part:first-child {
+    text-align: left
+}
+
+.content .part:last-child {
+    text-align: right
+}
+
+.section3 .content .part .t1 {
+    color: #585858;
+    font-size: 40px;
+    margin-bottom: 10px;
+    text-align:left
+}
+
+.section3 .content .part .t2 {
+    display: inline-block;
+    color: #836666;
+    font-size: 20px;
+    line-height: 2;
+    letter-spacing: 2px;
+    text-align: left
+}
+
+.section3 .content .part .img_see {
+    width: 430px
+}
+
+.section3 .content .img_hide {
+    width: 380px;
+    position: absolute;
+    bottom: 0;
+}
+
+.section3 .content .img_hideL {
+    width: 380px;
+    position: absolute;
+    left: 0;
+}
+
+.section3 .content .img_hideR {
+    width: 380px;
+    position: absolute;
+    right: 0;
+}
+
+.ft-menu {
+    background-image: -webkit-gradient(linear, left top, right top, from(#3f4aa6), to(#389cfa));
+    background-image: -webkit-linear-gradient(left, #3f4aa6, #389cfa);
+    background-image: -moz- oldlinear-gradient(left, #3f4aa6, #389cfa);
+    background-image: -o-linear-gradient(left, #3f4aa6, #389cfa);
+    background-image: linear-gradient(to right, #3f4aa6, #389cfa);
+}
+
+.ft-menu a {
+    color: #fefefe;
+}
+
+.m_page .ft-menu ul {
+    font-family: MSYHL;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.m_page .ft-menu p {
+    color: white;
+    text-align: center;
+}
+
+.m_page .ft-menu {
+    padding: 5vw 0;
+}
+
+.m_page .ft-menu ul {
+    margin-bottom: 3vw;
+}
+
+.m_page .ft-menu ul li {
+    margin: 0 2vw;
+}
+
+.m_page .ft-menu ul li a {
+    display: block;
+    font-size: 2.5vw;
+}
+
+.m_page .ft-menu p {
+    font-size: 2.5vw;
+}
+@media screen and (min-width: 769px){
+    .section3 .content {
+        height: 355px;
+    }
+}
+@media (min-width: 1920px){
+    .section3 .content {
+        height: 500px;
+    }
+}

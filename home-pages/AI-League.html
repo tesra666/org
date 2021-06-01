@@ -1,0 +1,1067 @@
+﻿<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>CACL联赛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="//app.vizo.top/js/zoom.js"></script>
+  <script src="//app.vizo.top/js/ie.js"></script>
+  <link rel="icon" type="image/x-icon" href="/home-pages/favicon.ico">
+  <link rel="stylesheet" href="/home-pages/font-awesome.css" />
+  <link rel="stylesheet" href="/home-pages/header.css" />
+  <link rel="stylesheet" href="/home-pages/common.css" />
+  <link rel="stylesheet" href="/home-pages/home.css" />
+  <link rel="stylesheet" href="/home-pages/data.css" />
+  <link rel="dns-prefetch" href="/login">
+  <link rel="dns-prefetch" href="/register">
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <script src="//app.vizo.top/js/mobile-tip.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+  <style>
+    body {
+      background-color: #0084ff;
+    }
+
+    .y-banner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin: 0 auto;
+      min-width: 1280px;
+      height: 608px;
+      background: url("./images/saishi-banner.png") no-repeat center;
+      background-size: 1920px 608px;
+    }
+
+    .y-banner ul {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      font-size: 14px;
+      margin-left: -36px;
+      margin-bottom: 103px;
+    }
+
+    .y-banner ul li {
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 62px;
+      background-color: rgba(255, 255, 255, .3);
+      margin-left: 36px;
+      border-radius: 5px;
+    }
+
+    .y-warp {
+      width: 1280px;
+      margin: 0 auto;
+      color: #ffffff;
+    }
+
+    .y-commonality-head {
+      margin-top: 70px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      height: 220px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .y-commonality-head-left {
+      width: 450px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      background-color: #FF6C17;
+      border-bottom: 6px solid #ffffff;
+    }
+
+    .y-commonality-head-right {
+      width: 450px;
+      height: 90px;
+      line-height: 90px;
+      text-align: center;
+      background-color: #3C3CE6;
+      border-bottom: 6px solid #ffffff;
+    }
+
+    .y-commonality-head-left-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 276px;
+      height: 180px;
+      content: '';
+      background: url("./images/shaisi_sprites.png") -10px -141px;
+    }
+
+    .y-commonality-head-right-icon {
+      position: absolute;
+      top: 38px;
+      right: 66px;
+      display: inline-block;
+      width: 167px;
+      height: 117px;
+      content: '';
+      background: url("./images/shaisi_sprites.png") -10px -341px;
+    }
+
+    .y-commonality-box>h2 {
+      width: 100%;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .y-commonality-box {
+      text-align: center;
+    }
+
+    .y-obj-box>p {
+      font-size: 20px;
+      padding: 30px 0;
+      line-height: 2.4;
+    }
+
+    .y-way-box {
+      text-align: center;
+    }
+
+    .y-way-box>h2 {
+      padding: 30px 0;
+    }
+
+    .y-way-box>p {
+      display: inline-block;
+      width: 610px;
+      text-align: left;
+      font-size: 20px;
+      line-height: 2.4;
+    }
+
+    .y-link a {
+      display: inline-block;
+      margin: 0 18px;
+      padding: 6px 8px;
+      background-color: #FF6C17;
+      line-height: 1.2;
+      font-size: 14px;
+      vertical-align: 2px;
+      border-radius: 5px;
+    }
+
+    .y-code-box {
+      padding: 30px 0;
+    }
+
+    .y-code-box img {
+      margin-bottom: 20px;
+    }
+
+    .y-code-box p {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .y-rule-box>p {
+      padding: 30px 0;
+      font-size: 20px;
+    }
+
+    .y-rule-box .flow {
+      width: 1134px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+    }
+
+    .y-rule-box .flow ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .y-rule-box .flow li {
+      position: relative;
+      height: 100px;
+      line-height: 100px;
+      width: 260px;
+      text-align: center;
+      background-color: #ffffff;
+      border-radius: 3px;
+      font-size: 20px;
+      color: #333333;
+    }
+
+    .y-rule-box .flow li i {
+      position: absolute;
+      left: 120px;
+      bottom: -8px;
+      display: inline-block;
+      width: 20px;
+      height: 8px;
+      background: url("./images/shaisi_sprites.png") -575px -209px;
+    }
+
+    .y-rule-box .flow li:nth-child(2) {
+      margin: 0 60px;
+    }
+
+    .y-rule-line {
+      margin-top: 40px;
+      width: 100%;
+      height: 5px;
+      background-color: #1AABFD;
+      border-radius: 3px;
+    }
+
+    .y-rule-hint {
+      margin-bottom: 20px;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .y-rule-hint li {
+      position: relative;
+      width: 260px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .y-rule-hint li i {
+      position: absolute;
+      left: 116px;
+      top: -45px;
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: url("./images/shaisi_sprites.png") -527px -209px;
+    }
+
+    .y-rule-hint li:nth-child(2) {
+      margin: 0 60px;
+    }
+
+    .y-rule-mailbox>p {
+      line-height: 3;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .y-rule-mailbox span {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .y-data-head {
+      margin-top: 10px !important;
+    }
+
+    .y-data-link {
+      padding: 30px 0;
+      font-size: 20px;
+    }
+
+    .y-commonality-content-box {
+      position: relative;
+      text-align: left;
+      width: 900px;
+      margin: 30px auto;
+      padding: 50px;
+      font-size: 16px;
+      color: #333333;
+      line-height: 2;
+      background-color: #ffffff;
+      border-radius: 5px;
+    }
+
+    .y-commonality-content-icon-left {
+      z-index: -1;
+      position: absolute;
+      top: -80px;
+      left: -90px;
+      display: inline-block;
+      width: 163px;
+      height: 179px;
+      background: url("./images/shaisi_sprites.png") -527px -10px;
+    }
+
+    .y-commonality-content-icon-right {
+      z-index: -1;
+      position: absolute;
+      bottom: -40px;
+      right: -90px;
+      display: inline-block;
+      width: 182px;
+      height: 171px;
+      background: url("./images/shaisi_sprites.png") -306px -141px;
+    }
+
+    .y-commonality-content-sub {
+      padding-top: 30px;
+      font-size: 20px;
+    }
+
+    .y-commonality-content-stress {
+      font-size: 20px;
+    }
+
+    .y-commonality-content-stress span {
+      font-weight: bold;
+    }
+
+    .y-equation {
+      display: inline-block;
+      width: 497px;
+      height: 111px;
+      background: url("./images/shaisi_sprites.png") -10px -10px;
+    }
+
+    .y-counselor-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .y-counselor-box li {
+      text-align: center;
+      padding: 30px;
+      width: 360px;
+      height: 460px;
+      background-color: #ffffff;
+      color: #333333;
+      margin-bottom: 70px;
+    }
+
+    .y-counselor-box li h3 {
+      padding-top: 30px;
+      padding-bottom: 16px;
+      font-weight: bold;
+    }
+
+    .y-bonus-box .y-commonality-content-sub {
+      padding-top: 0;
+      padding-bottom: 30px;
+    }
+
+    .y-bonus-box {
+      width: 1140px;
+      margin: 0 auto;
+    }
+
+    .y-bonus-list {
+      display: flex;
+      margin-top: 30px;
+    }
+
+    .y-bonus-list-content {
+      padding: 30px 30px 30px 80px;
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+      background-color: #ffffff;
+      height: 260px;
+      color: #333333;
+    }
+
+    .y-bonus-list-content p {
+      line-height: 2.6;
+      font-size: 20px;
+      text-align: left;
+      flex: 0 0 50%;
+    }
+
+    .y-bonus-list-title {
+      text-align: left;
+      width: 300px;
+      background-color: rgba(255, 255, 255, .1);
+      height: 260px;
+    }
+
+    .y-bonus-list-title span {
+      font-size: 12px;
+      padding-left: 30px;
+    }
+
+    .y-bonus-list-title p {
+      padding: 30px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .y-bonus-list-title h3 {
+      font-size: 28px;
+      font-weight: bold;
+      text-align: left;
+      position: relative;
+      padding-left: 40px;
+      line-height: 90px;
+      background-color: #3C3CE6;
+    }
+
+    .y-bonus-list-title h3::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 16px;
+      background-color: #FF6C17;
+      content: '';
+    }
+
+    .y-study-box {
+      padding-left: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .y-study-box li {
+      margin-bottom: 30px;
+      margin-right: 20px;
+      width: 400px;
+      line-height: 100px;
+      height: 100px;
+      text-align: center;
+      font-size: 24px;
+      color: #333333;
+      font-weight: bold;
+      background-color: #ffffff;
+    }
+
+    .y-footer {
+      padding: 30px 0;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      background-color: #ffffff;
+      height: 120px;
+    }
+
+    .y-footer ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .y-footer ul li {
+      font-size: 14px;
+      color: #56627D;
+      width: 100px;
+    }
+
+    .y-footer p {
+      padding-top: 12px;
+      color: #999999;
+      font-size: 12px;
+    }
+
+    .y-nav {
+      height: 100px;
+      background-color: #3C3CE6;
+    }
+
+    .y-nav ul {
+      width: 1280px;
+      margin: 0 auto;
+      display: flex;
+    }
+
+    .y-nav ul li {
+      text-align: center;
+      font-size: 28px;
+      color: #ffffff;
+      line-height: 100px;
+      width: 256px;
+      height: 100px;
+      cursor: pointer;
+    }
+
+    .y-nav ul li:hover {
+      background-color: #2626A9;
+    }
+
+    .y-active {
+      background-color: #2626A9;
+    }
+
+    .y-header {
+      height: 58px;
+      background-color: #ffffff;
+    }
+
+    .y-header ul {
+      height: 58px;
+      width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .y-header .logo {
+      height: 58px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #60677A;
+      margin-right: 30px;
+    }
+
+    .y-header .logo span {
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .y-header .logo span::after {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: '';
+      height: 100%;
+      width: 1px;
+      background: #60677A;
+    }
+
+    .y-header .logo img {
+      display: inline-block;
+      width: 140px;
+    }
+
+    .y-header .logo a {
+      width: auto;
+    }
+
+    .y-header a {
+      text-align: center;
+      display: inline-block;
+      width: 80px;
+      font-size: 14px;
+      color: #152549;
+    }
+
+    .language {
+      display: none;
+    }
+
+    .y-banner-icon {
+      color: #ffffff;
+      padding-top: 13px;
+      padding-left: 7px;
+      height: 48px;
+      width: 1280px;
+      margin: 59px auto 0 auto;
+      background: url("./images/banner-icon.png") no-repeat;
+      background-size: 48px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="y-banner">
+      <div class="y-banner-icon">
+        进行中
+      </div>
+      <ul>
+        <li>
+          <span>赛事命题</span>
+          <p>波士顿房价预测</p>
+        </li>
+        <li>
+          <span>命题社团</span>
+          <p>重庆大学AI协会</p>
+        </li>
+        <li>
+          <span>参赛社团</span>
+          <p>15</p>
+        </li>
+        <li>
+          <span>联赛奖金池</span>
+          <p>12000元</p>
+        </li>
+      </ul>
+    </div>
+    <div class="y-nav">
+      <ul>
+        <li class="y-active" onclick="toNav('xx')">赛事信息</li>
+        <li onclick="toNav('sj')">赛题数据</li>
+        <li onclick="toNav('gw')">顾问团</li>
+        <li onclick="toNav('fp')">奖金池分配</li>
+        <li onclick="toNav('st')">报名社团</li>
+      </ul>
+    </div>
+    <div class="y-warp">
+      <div class="y-commonality-head" id="xx">
+        <i class="y-commonality-head-left-icon"></i>
+        <i class="y-commonality-head-right-icon"></i>
+        <div class="y-commonality-head-left">
+          <span>2019年第1赛季</span>
+        </div>
+        <div class="y-commonality-head-right">
+          <span>赛事信息</span>
+        </div>
+      </div>
+      <section class="y-commonality-box y-obj-box">
+        <h2>参赛对象</h2>
+        <p>
+          面向T-CCP高校AI成长社区各大已注册的高校社团及社团成员可参赛，
+          <br />
+          由社团社长统一提交报名队伍信息，
+          <br />
+          组队上限为3人，每个社团至少1个队伍参赛。
+        </p>
+      </section>
+      <section class="y-commonality-box y-way-box">
+        <h2>报名方式</h2>
+        <p>
+          1. 报名开始时间：2019年11月20日；
+          <br />
+          2. 截止报名及组队变更时间：2019年11月30日 ；
+          <br />
+          3. 参赛队伍1-3人组队参赛，每位选手只能加入一支队伍；
+          <br />
+          4. 报名方式：由每个社团的社长统一提交本社团参赛队伍信息
+          <br />
+          （包含队长、队员ID）并提交到指定邮箱；
+          <br />
+          5. 社长需确保报名信息准确有效，否则会被取消参赛资格及奖励；
+          <br />
+          6. 不提交或提交无效训练结果及代码将被取消参赛资格，奖金池社团基数对应-1
+        </p>
+        <br />
+        <p class="y-link">7.报名表<a target="_blank"
+            href="https://ipfs.tesra.vip:8011/ipfs/QmYjsWt2Dkj95CFMX1vJvF7ihApJu29QjBuSErU41XtaUf">点此下载</a>提交邮箱：cacl@tesra.vip
+        </p>
+        <div class="y-code-box">
+          <img src="./images/erweim.png" alt="" srcset="">
+          <p>微信扫一扫，加入官方交流群</p>
+        </div>
+      </section>
+      <section class="y-commonality-box y-rule-box">
+        <h2 style="margin-top: 30px;">赛程安排</h2>
+        <p class="">本轮比赛分为三个阶段，具体安排和要求如下：</p>
+        <div class="flow">
+          <ul>
+            <li>
+              <i></i>
+              11月20日-11月30日
+            </li>
+            <li>
+              <i></i>
+              12月1日-12月18日
+            </li>
+            <li>
+              <i></i>
+              12月20日
+            </li>
+          </ul>
+        </div>
+        <div class="y-rule-line"></div>
+        <ul class="y-rule-hint">
+          <li>
+            <i></i>
+            报名
+          </li>
+          <li>
+            <i></i>
+            提交结果
+          </li>
+          <li>
+            <i></i>
+            成绩公布
+          </li>
+        </ul>
+        <div class="y-rule-mailbox">
+          <p style="margin-top: 40px;">训练结果提交</p>
+          <span>提交邮箱：cacl@tesra.vip（参赛选手需在Inflex平台训练并提供完整截图包含训练编号）</span>
+          <div class="y-commonality-content-box">
+            <p>
+              须知：
+              <br />
+              1、所有提交的训练结果均需要基于INFLEX训练平台（tesra.cloud）训练，并提交
+              本次训练完整截图包含训练编号；
+              <br />
+              2、为保证赛事公平公正，所有参赛队伍均有义务将参赛模型代码公开；
+              <br />
+              3、联赛每轮前5名社团队伍均需公开参赛模型源码和代码情况说明；
+              <br />
+              4、T-CCP社区对所有参赛模型代码具备调用权限用于T-CCP社区用户交流学习，但保证不做商业用途使用。
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="y-commonality-head y-data-head" id="sj">
+        <i class="y-commonality-head-left-icon"></i>
+        <i class="y-commonality-head-right-icon"></i>
+        <div class="y-commonality-head-left">
+          <span>2019年第1赛季</span>
+        </div>
+        <div class="y-commonality-head-right">
+          <span>赛题数据</span>
+        </div>
+      </div>
+      <section class="y-commonality-box">
+        <h2>数据下载</h2>
+        <p class="y-link y-data-link">点此下载数据集<a
+            href="https://ipfs.tesra.vip:8011/ipfs/QmTsagFUGE9nPEAjBPqw2MKNaZWzpauYZkNJaEz1jYkBjF">点此下载</a></p>
+      </section>
+      <section class="y-commonality-box">
+        <h2>任务</h2>
+        <div class="y-commonality-content-box">
+          <p>通过学习房屋以及房屋周围的详细信息,其中包含城镇犯罪率，一氧化氮浓度，住宅平均房间数，到中心区域的加权距离以及自住房平均房价等等,训练模型,通过某个地区的房屋以及房屋周围的详细信息，预测该地区的自住房平均房价。
+          </p>
+        </div>
+      </section>
+      <section class="y-commonality-box">
+        <h2>数据说明</h2>
+        <p class="y-commonality-content-sub">训练集提供了房屋以及房屋周围的详细信息等。</p>
+        <div class="y-commonality-content-box">
+          <i class="y-commonality-content-icon-left"></i>
+          <i class="y-commonality-content-icon-right"></i>
+          <p class="y-commonality-content-stress">
+            <span>
+              训练集:
+            </span>
+            波士顿房间训练集.csv (404条数据)
+          </p>
+          <p class="y-commonality-content-stress"><span>训练集字段如下:</span></p>
+          <p>
+            CRIM：城镇人均犯罪率。
+            <br />
+            ZN：住宅用地超过 25000 sq.ft. 的比例。
+            <br />
+            INDUS：城镇非零售商用土地的比例。
+            <br />
+            CHAS：查理斯河空变量（如果边界是河流，则为1；否则为0）。
+            <br />
+            NOX：一氧化氮浓度。
+            <br />
+            RM：住宅平均房间数。
+            <br />
+            AGE：1940 年之前建成的自用房屋比例。
+            <br />
+            DIS：到波士顿五个中心区域的加权距离。
+            <br />
+            RAD：辐射性公路的接近指数。
+            <br />
+            TAX：每 10000 美元的全值财产税率。
+            <br />
+            PTRATIO：城镇师生比例。
+            <br />
+            B：1000（Bk-0.63）^ 2，其中 Bk 指代城镇中黑人的比例。
+            <br />
+            LSTAT：人口中地位低下者的比例。
+            <br />
+            MEDV：自住房的平均房价，以千美元计。
+          </p>
+        </div>
+      </section>
+      <section class="y-commonality-box">
+        <h2>提交格式</h2>
+        <div class="y-commonality-content-box">
+          <p>如submission.csv ,其中每一个id字段对应该地区的自住房的平均房价MEDV,表头为MEDV,id。</p>
+        </div>
+      </section>
+      <section class="y-commonality-box">
+        <h2>评分标准</h2>
+        <div class="y-commonality-content-box">
+          <p>
+            本赛题采用均方误差(MSE)评分标准,MSE: Mean Squared Error 
+            均方误差是指参数估计值与参数真值之差平方的期望值; 
+            MSE可以评价数据的变化程度，MSE的值越小，说明预测模型描述实验数据具有更好的精确度。计算公式如下:
+          </p>
+          <i class="y-equation"></i>
+          <p>observed表示正确的自住房的平均房价,predicted表示预测的自住房的平均房价,N代表测试集的数量。</p>
+        </div>
+      </section>
+      <div class="y-commonality-head y-data-head" id="gw">
+        <i class="y-commonality-head-left-icon"></i>
+        <i class="y-commonality-head-right-icon"></i>
+        <div class="y-commonality-head-left">
+          <span>2019年第1赛季</span>
+        </div>
+        <div class="y-commonality-head-right">
+          <span>顾问团</span>
+        </div>
+      </div>
+      <ul class="y-counselor-box">
+        <li>
+          <img src="./images/img1.png" alt="">
+          <h3>张栋</h3>
+          <p>软件工程专业硕士，高级软件工程师</p>
+        </li>
+        <li>
+          <img src="./images/img2.png" alt="">
+          <h3>谷口里美</h3>
+          <p>资深系统工程师、系统架构师</p>
+        </li>
+        <li>
+          <img src="./images/img3.png" alt="">
+          <h3>余学明</h3>
+          <p>清华大学博士、重庆大学资深教授</p>
+        </li>
+        <li>
+          <img src="./images/img4.png" alt="">
+          <h3>谭涛</h3>
+          <p>Da Vinci Lab首席科学家</p>
+        </li>
+        <li>
+          <img src="./images/img5.png" alt="">
+          <h3>郭金</h3>
+          <p>InFlex计算平台首席工程师</p>
+        </li>
+        <li>
+          <img src="./images/img6.png" alt="">
+          <h3>张朝霞</h3>
+          <p>Tesra Supernet QAQC项目负责人</p>
+        </li>
+      </ul>
+      <p style="text-align: center;line-height: 2; font-size: 16px;">
+        联赛第一轮线上指导时间：12月2日
+        <br />
+        指导老师：张栋
+        <br />
+        指导微信群：微信扫描上方官方交流群二维码
+      </p>
+      <div class="y-commonality-head y-data-head" id="fp">
+        <i class="y-commonality-head-left-icon"></i>
+        <i class="y-commonality-head-right-icon"></i>
+        <div class="y-commonality-head-left">
+          <span>2019年第1赛季</span>
+        </div>
+        <div class="y-commonality-head-right">
+          <span>奖金池分配</span>
+        </div>
+      </div>
+      <section class="y-commonality-box y-bonus-box">
+        <p class="y-commonality-content-sub">赛季结束根据总积分排名，各参赛社团根据联赛总积分排名可获取相对应比例的奖金池奖金。</p>
+        <h2>赛季总奖金池(上限12000元)</h2>
+        <h2 style="padding-top: 30px;">参赛社团数 * 1000元</h2>
+        <div class="y-bonus-list">
+          <div class="y-bonus-list-title">
+            <h3>奖池分配规则</h3>
+            <p>每个赛季成功提交并作为大赛命题的社团成员均可分取赛季奖金池5%的奖金。</p>
+            <span>注：根据联赛队伍数量分配比例将会有一定调整。</span>
+          </div>
+          <div class="y-bonus-list-content">
+            <p>
+              指导专家团分取：5%
+              <br />
+              联赛总积分第一名社团：30%
+              <br />
+              联赛总积分第二名社团：20%
+              <br />
+              联赛总积分第三名社团：10%
+            </p>
+            <p>
+              命题社团：5% * 3
+              <br />
+              联赛总积分第四名社团：6%
+              <br />
+              联赛总积分第五名社团：3%
+              <br />
+              联赛总积分第六名以后社团：共11%</p>
+          </div>
+        </div>
+        <div class="y-bonus-list">
+          <div class="y-bonus-list-title">
+            <h3>联赛积分获取</h3>
+            <p>本轮比赛根据各参赛社团最优结果排名获得联赛积分。</p>
+          </div>
+          <div class="y-bonus-list-content">
+            <p>
+              第一名社团积 20 分
+              <br />
+              第二名社团积 19 分
+              <br />
+              以此类推第十名社团积 11 分
+              <br />
+              第十一名至第十五名社团积 5 分
+
+            </p>
+            <p>第十六名后社团积 1分</p>
+          </div>
+        </div>
+        <div class="y-bonus-list">
+          <div class="y-bonus-list-title">
+            <h3>证书及奖状发放</h3>
+            <p>本赛季结束后，T-CCP社区将会根据每一轮比赛排名对参赛的队伍及社区进行奖状发放</p>
+          </div>
+          <div class="y-bonus-list-content">
+            <p style="flex: 1;">
+              每轮前三名队伍将会获得对应名次奖状
+              <br />
+              联赛前三名社团将会获得对应名次证书
+              <br />
+              联赛还将评选出最具创新队伍、最活跃队伍等奖项进行奖励
+              <br />
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="y-commonality-head" id="st">
+        <i class="y-commonality-head-left-icon"></i>
+        <i class="y-commonality-head-right-icon"></i>
+        <div class="y-commonality-head-left">
+          <span>2019年第1赛季</span>
+        </div>
+        <div class="y-commonality-head-right">
+          <span>报名社团</span>
+        </div>
+      </div>
+      <ul class="y-study-box">
+        <li>四川大学智锐科创计算机协会</li>
+        <li>重庆大学人工智能协会</li>
+        <li>贵州大学双创中心人工智能团队</li>
+        <li>重庆邮电大学人工智能协会</li>
+        <li>重庆交通大学人工智能协会</li>
+        <li>成都理工人工智能协会</li>
+        <li>重庆科技学院MAI大数据协会</li>
+        <li>重庆理工大学人工智能团队</li>
+        <li>中南财经政法大学-AI社团</li>
+        <li>上海应用技术大学-AI协会</li>
+        <li>南京理工大学电子设计协会</li>
+        <li>浙江大学人工智能俱乐部</li>
+        <li>华北理工大学-ibooker</li>
+        <li>江苏大学-AI社团</li>
+        <li>中国海洋大学智能数据分析俱乐部</li>
+      </ul>
+      <p style="text-align: center;font-size: 18px;margin-bottom: 50px;">排名不分先后（每天10:00更新）</p>
+      <div class="y-commonality-content-box" style="width: 1280px;margin-bottom: 120px;">
+        <p>
+          公告：
+          <br />
+          1、第一赛季第2、3轮赛题征集中，各位社团成员请积极参与命题，通过并发布即可分取
+          奖金池5%，命题征集邮箱cacl@tesra.vip；命题包含：命题说明、数据集（包含训练集、
+          验证集、测试集）、数据集字段说明、提交格式、评分标准。详情请加入官方微信群了解。
+          <br />
+          2、基于本轮竞赛，欢迎各位参赛者提供参赛经验分享及学习笔记等内容，征集邮箱
+          cacl@tesra.vip，一经T-CCP社区采纳将会获得社团活跃值奖励。
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer align_c flex_box flex_align_c">
+      <div>
+        <div class="flex_box flex_align_c margin_b_10">
+          <a class="margin_lr_20" href="https://tccp.tesra.cloud">TCCP</a>
+          <a class="margin_lr_20" href="/help" enrk="Help">帮助中心</a>
+          <a class="margin_lr_20" href="/uplog" enrk="Update Log">更新日志</a>
+          <a class="margin_lr_20" href="javascript:goToHelp();" enrk="About Us">关于我们</a>
+          <a class="margin_lr_20" href="/protocol" enrk="Service Agreement">服务协议</a>
+          <a class="margin_lr_20" id="feedback" enrk="Feedback">反馈</a>
+        </div>
+        <div class="infor" enrk="@Copyright Tesra Supernet">@Copyright Tesra超算网络</div>
+      </div>
+    </div>
+  </div>
+  <div class="m_page">
+    <div class="height_50"></div>
+    <div class="flex_box flex_align_sb height_50 pading_lr_15 mune_nav">
+      <a href="/"><img height="30" src="/home-pages/imgs/data_m/m_logo.png" alt=""></a>
+      <img class="menu" height="20" src="/home-pages/imgs/data_m/m_menu.png" alt="">
+    </div>
+    <!-- <img src="/home-pages/imgs/data_m/index.png" class="full_w" alt=""> -->
+    <img src="/home-pages/imgs/data_m/store_0.png" class="full_w" enrk="/home-pages/imgs/data_m/store_0_en.png" alt="">
+    <img src="/home-pages/imgs/data_m/store_1.png" class="full_w" enrk="/home-pages/imgs/data_m/store_1_en.png" alt="">
+    <img src="/home-pages/imgs/data_m/store_2.png" class="full_w" enrk="/home-pages/imgs/data_m/store_2_en.png" alt="">
+    <img src="/home-pages/imgs/data_m/store_3.png" class="full_w" enrk="/home-pages/imgs/data_m/store_3_en.png" alt="">
+    <img src="/home-pages/imgs/data_m/store_4.png" class="full_w" enrk="/home-pages/imgs/data_m/store_4_en.png" alt="">
+    <img src="/home-pages/imgs/data_m/store_5.png" class="full_w" enrk="/home-pages/imgs/data_m/store_5_en.png" alt="">
+    <img src="/home-pages/imgs/data_m/store_6.png" class="full_w" enrk="/home-pages/imgs/data_m/store_6_en.png" alt="">
+    <div class="ft-menu">
+      <ul>
+        <li>
+          <a href="https://tccp.tesra.cloud">TCCP</a>
+        </li>
+        <li>
+          <a href="http://tesra.io" enrk="About Us">关于我们</a>
+        </li>
+        <li>
+          <a enrk="@Copyright Tesra Supernet">@Copyright Tesra超算网络</a>
+        </li>
+      </ul>
+      <p class="infor" enrk="Please try Tesra products on PC for a better experience">提示:为了您更好的体验Tesra的产品请移步至PC端尝试</p>
+    </div>
+  </div>
+  <div class="menulist posi_f full l_0 t_0">
+    <div class="pading_lr_15 align_c menuBox datamenuBox">
+      <a class="list" href="/home-pages/xiexp/help.pdf" enrk="Product Function">产品功能</a>
+      <a class="list on" href="/home-pages/data.html" enrk="Storage">存储空间</a>
+      <a class="list" href="/home-pages/data_px/index.html" enrk="Data Security">信息安全</a>
+    </div>
+  </div>
+  <script src="/home-pages/checkIsLogin.js"></script>
+  <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    function goToHelp() {
+      let isEn = localStorage.getItem("curLanguage") === "en"
+      if (isEn) {
+        window.location.href = "/help-detail/27"
+      } else {
+        window.location.href = "/help-detail/8"
+      }
+    }
+    $(function () {
+      if (localStorage.getItem('curLanguage') === 'en') {
+        $(".nav .data").css("background", "url(/home-pages/imgs/en-Xstore.png) no-repeat bottom")
+      }
+      var screenHeight = $(window).height();
+      $('.data_page').css('height', screenHeight + 'px')
+      $('.menu').click(function () {
+        $('.menulist').show();
+      })
+      $('.menulist').click(function () {
+        $('.menulist').hide();
+      })
+    })
+  </script>
+  <script>
+    function heightToTop(ele) {
+      //ele为指定跳转到该位置的DOM节点
+      var root = document.body;
+      var height = 0;
+      do {
+        height += ele.offsetTop;
+        ele = ele.offsetParent;
+      } while (ele !== root)
+      return height;
+    }
+
+    function toNav(e) {
+      var dom = document.getElementById(e)
+      $('html,body').animate({
+        scrollTop: heightToTop(dom)
+      }, 300)
+      // window.scrollTo({
+      //       top:heightToTop(dom),
+      //       behavior:'smooth'
+      //   })
+    }
+  </script>
+  <script src="/home-pages/header.js"></script>
+  <script src="/home-pages/common.js"></script>
+</body>
+<div style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1278237059&web_id=1278237059"></script>
+</div>
+
+</html>

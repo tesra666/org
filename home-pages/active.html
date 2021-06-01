@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//app.vizo.top/js/zoom.js"></script>
+  <script src="//app.vizo.top/js/ie.js"></script>
+  <meta name="renderer" content="webkit">
+  <link rel="icon" type="image/x-icon" href="/home-pages/favicon.ico" />
+  <link rel="stylesheet" href="/home-pages/header.css" />
+  <link rel="stylesheet" href="/home-pages/common.css" />
+  <link rel="stylesheet" href="/home-pages/home.css" />
+  <link rel="stylesheet" href="/home-pages/active.css" />
+  <link rel="dns-prefetch" href="/login">
+  <link rel="dns-prefetch" href="/register">
+  <title enrk="Tesra - Activities">Tesra-最新活动</title>
+</head>
+<style>
+  body {
+    background: linear-gradient(to right, #4953ab, #42a1fa);
+    position: relative;
+  }
+
+  .kt-header {
+    position: relative;
+  }
+
+  .footer {
+    background: unset;
+  }
+</style>
+
+<body>
+  <div class="container" id="app">
+    <ul v-if="activeData.total > 0" class="active-list flash-none">
+      <li v-for="(act,index) in activeData.list" :key="index" @click="goToDetail(act.id,index)">
+        <div class="active-picture">
+          <img :src="'https://ipfs.tesra.vip:8011/ipfs/'+act.hash" alt="">
+        </div>
+        <div class="active-txt">
+          <div class="active-title">
+            <span :title="act.title">{{act.title}}</span>
+            <img v-if="index===0" src="/home-pages/imgs/ico_new.png" alt="">
+            <img v-if="act.readingVolume >= 500" src="/home-pages/imgs/ico_hot.png" alt="">
+            <img v-if="(new Date()).getTime() > act.beOverdueTime" src="/home-pages/imgs/ico_guoqi.png" alt="">
+          </div>
+          <div class="active-intro">
+            {{ act.description || noContent }}
+          </div>
+          <div class="active-popularity">
+            <div class="active-timer"><img src="/home-pages/imgs/ico_time.png" alt="">{{format(act.releaseTime)}}</div>
+            <div class="active-pv"><img src="/home-pages/imgs/ico_see.png" alt="">{{ pageView }} {{act.readingVolume}}
+            </div>
+            <div class="active-enshrine"><img src="/home-pages/imgs/ico_shouchang.png" alt="">{{ collection }}
+              {{act.collection}}
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul v-else class='flash-none'>
+      <li class="un-data">{{ noContent }}</li>
+    </ul>
+    <div v-if="activeData.total > 0" class="paging flash-none">
+      <ul>
+        <li @click="prePage" class="pre-page-btn"> < </li> 
+        <li v-if="(activeData.pageNum - 1 >= 2)" @click="getActivesByPage(1)">1</li>
+        <li v-if="(activeData.pageNum - 1 > 2)" class="omit">···</li>
+        <li v-if="!(activeData.pageNum < 2) && activeData.pages > 1" @click="getActivesByPage(activeData.prePage)">
+          {{ activeData.pageNum - 1 }}</li>
+        <li class="activing">{{ activeData.pageNum }}</li>
+        <li v-if="!(activeData.pageNum > activeData.pages - 1) && activeData.pages > 1"
+          @click="getActivesByPage(activeData.nextPage)">{{ activeData.pageNum + 1 }}</li>
+        <li v-if="(activeData.pages - activeData.pageNum > 2)" class="omit">···</li>
+        <li v-if="!(activeData.pageNum >= activeData.pages - 1) && activeData.pages > 1"
+          @click="getActivesByPage(activeData.pages)">{{ activeData.pages }}</li>
+
+        <li @click="nextPage" class="next-page-btn"> > </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer align_c flex_box flex_align_c">
+    <div>
+      <div class="flex_box flex_align_c margin_b_10">
+        <a href="https://tccp.tesra.cloud">TCCP</a>
+        <a class="margin_lr_20" href="/help" enrk="Help">帮助中心</a>
+        <a class="margin_lr_20" href="/uplog" enrk="Update Log">更新日志</a>
+        <a class="margin_lr_20" href="javascript:goToHelp();" enrk="About Us">关于我们</a>
+        <a class="margin_lr_20" href="/protocol" enrk="Service Agreement">服务协议</a>
+        <a class="margin_lr_20" id="feedback" enrk="Feedback">反馈</a>
+      </div>
+      <div class="infor" enrk="@Copyright Tesra Supernet">@Copyright Tesra超算网络</div>
+    </div>
+  </div>
+  <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+  <script src="https://lib.baomitu.com/axios/0.19.0-beta.1/axios.min.js"></script>
+  <script src="/home-pages/header.js"></script>
+  <script src="/home-pages/common.js"></script>
+</body>
+<script>
+  function goToHelp(){
+    let isEn = localStorage.getItem("curLanguage") === "en"
+    if(isEn){
+      window.location.href="/help-detail/27"
+    } else {
+      window.location.href="/help-detail/8"
+    }
+  }
+  $(function () {
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          activeData: {},
+          isEn: localStorage.getItem("curLanguage") === "en"
+        }
+      },
+      created() {
+        this.getActivesByPage()
+        setTimeout(() => {
+          let els = document.querySelectorAll('.flash-none')
+          els.forEach(el => {
+            el.classList.remove('flash-none')
+          })
+        }, 800);
+      },
+      computed: {
+        noContent() {
+          return this.isEn ? "No Active Content" : "暂无活动内容"
+        },
+        pageView() {
+          return this.isEn ? "PViews" : "阅读量"
+        },
+        collection() {
+          return this.isEn ? "Collection" : "收藏量"
+        }
+      },
+      methods: {
+        format(formatStr, timestamp = 0) {
+          if (arguments.length === 1) {
+            formatStr = 'Y-M-D h:m:s'
+            timestamp = arguments[0]
+          }
+          let tp = new Date(timestamp)
+          let Y = tp.getYear()
+          Y = Y < 1900 ? Y + 1900 : Y
+          let o = {
+            M: tp.getMonth() + 1,
+            D: tp.getDate(),
+            h: tp.getHours(),
+            m: tp.getMinutes(),
+            s: tp.getSeconds(),
+          }
+          for (let k in o) {
+            o[k] = (o[k] + '').replace(/^(\d)$/, '0$1')
+          }
+          return formatStr.replace('Y', Y).replace('M', o.M).replace('D', o.D).replace('h', o.h).replace('m', o
+            .m).replace('s', o.s)
+        },
+        goToDetail(id, i) {
+          window.location.href = "./activedetail.html?actId=" + id + (i === 0 ? '&newest=1' : '')
+        },
+        getActivesByPage(page) {
+          let pageNum = page || 1
+          let pageSize = 5
+          axios({
+              url: '/api/activity/selectActivityList?pageNum=' + pageNum + '&pageSize=5',
+              method: 'GET',
+              headers: {
+                version: 1,
+                device: 1,
+                'Accept-Language':this.isEn ? 'en-US' : 'zh-CN'
+              }
+            })
+            .then(res => {
+              if (res.data.code === 200) {
+                let data = res.data.payload
+                this.activeData = data
+                let els = document.querySelectorAll('.flash-none')
+                els.forEach(el => {
+                  el.classList.remove('flash-none')
+                })
+              } else {
+                alert(res.data.message)
+              }
+            })
+        },
+        prePage() {
+          let prePageNumber = this.activeData.prePage <= 0 ? 1 : this.activeData.prePage
+          this.getActivesByPage(prePageNumber)
+        },
+        nextPage() {
+          let nextPageNumber = (this.activeData.nextPage >= this.activeData.pages ||this.activeData.nextPage === 0) ? this.activeData.pages : this
+            .activeData.nextPage
+          this.getActivesByPage(nextPageNumber)
+        }
+      },
+
+    })
+  })
+</script>
+
+</html>
